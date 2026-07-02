@@ -79,7 +79,7 @@ background-image:linear-gradient(rgba(11,12,16,0.4), rgba(11,12,16,0.4)),
 }
 
 .container {
-    width: 100%;
+    /* width: 100%;
     max-width: 1200px;
     padding: 20px;
     display: flex;
@@ -87,7 +87,16 @@ background-image:linear-gradient(rgba(11,12,16,0.4), rgba(11,12,16,0.4)),
     gap: 25px;
     position: relative;
     z-index: 3;
-   
+    */
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+    z-index: 3;
 
 }
 
@@ -111,11 +120,12 @@ background-image:linear-gradient(rgba(11,12,16,0.4), rgba(11,12,16,0.4)),
 .bg-glow {
     position: fixed; /* Змінено на fixed, щоб плями залишалися на фоні при скролі */
     border-radius: 50%;
-    filter: blur(55px);
-    opacity: 0.9;
+    filter: blur(50px);
+    opacity: 1;
     z-index: 2;
-    /* mix-blend-mode: screen; Гарно змішує кольори між собою */
+    /* mix-blend-mode: screen;  */
     /* mix-blend-mode: color-dodge; */
+    mix-blend-mode:multiply;
     pointer-events: none;
 }
 
@@ -212,7 +222,10 @@ nav a:hover::after, nav a.active::after {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 25px;
-    
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 40px;
 }
 
 .hero-card {
@@ -401,4 +414,138 @@ h1 {
         font-size: 36px;
     }
 }
+
+--- РОЗДІЛ СЕРТИФІКАТІВ ---
+/* .certificates-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-top: -50vw;
+    padding: 40px 40px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+    background: linear-gradient(45deg, #00d2ff, #b100ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+/* --- СІТКА (GRID) --- */
+/* За замовчуванням: 1 колонка для мобільних телефонів */
+/* .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+} */
+
+/* ПЛАНШЕТИ (Ширина екрана від 600px до 900px): сітка 2 на 2 */
+/* @media (min-width: 600px) {
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */
+
+/* КОМП'ЮТЕРИ (Ширина екрана від 901px): сітка 3 колонки (разом вийде 3х4 для 12 штук) */
+/* @media (min-width: 901px) {
+    .certificates-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+} */
+
+/* --- СЕКЦІЯ СЕРТИФІКАТІВ (БЕЗПЕЧНА) --- */
+.certificates-section {
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+    /* Більше ніяких margin-left: -50vw, секція стоїть чітко у своєму потоці */
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    text-align: center;
+    background: linear-gradient(45deg, #00d2ff, #b100ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- СІТКА АДАПТИВНОСТІ --- */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 для телефонів */
+    gap: 25px;
+    width: 100%;
+}
+
+/* ПЛАНШЕТИ (2 на 2) */
+@media (min-width: 650px) {
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* КОМП'ЮТЕРИ (3 на 4) */
+@media (min-width: 1000px) {
+    .certificates-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+
+/* --- СТИЛІЗАЦІЯ СКЛЯНИХ КАРТОК --- */
+.cert-card {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+}
+
+/* Обгортка для картинки, щоб тримати пропорції */
+.cert-image-wrapper {
+    width: 100%;
+    height: 300px; /* Фіксована висота для акуратності */
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.cert-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Картинка сертифіката не обрізатиметься, а впишеться в рамки */
+    transition: transform 0.3s ease;
+}
+
+/* Ефект наведення: картинка сертифіката злегка збільшується */
+.cert-card:hover .cert-img {
+    transform: scale(1.05);
+}
+
+/* Інформація про сертифікат */
+.cert-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.cert-info p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
 
