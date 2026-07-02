@@ -6,13 +6,13 @@
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     scroll-behavior: smooth;
 }
-
+/* 
 body {
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.03em;
   background-color: var(--white-background-color);
   color: var(--primary-text-color);
-}
+} */
 
 /* убираем точки списков */
 .list {
@@ -49,15 +49,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0;
-     background-image:     url("./hero.png");
+
+
+
+    /* padding: 40px 0;
+     background-image:     url("./hero.png"); */
       /* background-image:linear-gradient(rgba(11,12,16,0.4), rgba(11,12,16,0.4)),
      url("./images/hero.png"); */
+     /* background-size: cover;
+     background-position: center; */
+     /* background-attachment: fixed; */
+     /* background-repeat: no-repeat; */
+    
+}
+
+.bg-image{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image:linear-gradient(rgba(11,12,16,0.4), rgba(11,12,16,0.4)),
+     url("./images/hero.png");
      background-size: cover;
      background-position: center;
      /* background-attachment: fixed; */
      background-repeat: no-repeat;
-    
+     z-index: 1;
 }
 
 .container {
@@ -67,7 +85,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    z-index: 10;
+    position: relative;
+    z-index: 3;
    
 
 }
@@ -92,10 +111,12 @@ body {
 .bg-glow {
     position: fixed; /* Змінено на fixed, щоб плями залишалися на фоні при скролі */
     border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.45;
-    z-index: 1;
-    mix-blend-mode: screen; /* Гарно змішує кольори між собою */
+    filter: blur(55px);
+    opacity: 0.9;
+    z-index: 2;
+    /* mix-blend-mode: screen; Гарно змішує кольори між собою */
+    /* mix-blend-mode: color-dodge; */
+    pointer-events: none;
 }
 
 .bg-glow-1 {
@@ -117,8 +138,8 @@ body {
 }
 
 .bg-glow-3 {
-    width: 380px;
-    height: 380px;
+    width: 480px;
+    height: 480px;
     background: linear-gradient(45deg, #b100ff, #7b1fa2);
     top: 30%;
     left: 40%;
