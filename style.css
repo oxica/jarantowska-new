@@ -44,7 +44,7 @@ body {
     color: #ffffff;
     min-height: 100vh;
     width: 100vw;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     position: relative;
     display: flex;
     justify-content: center;
@@ -100,8 +100,24 @@ background-image:linear-gradient(rgba(11,12,16,0.4), rgba(11,12,16,0.4)),
 
 }
 
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    align-items: flex-start;
+        /* background: rgba(111, 96, 96, 0.163);
+            backdrop-filter: blur(14px); */
+
+
+}
+
 /* --- ЕФЕКТ СКЛА (Glassmorphism) --- */
 .glass-panel {
+     /* position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9999; */
     background: rgba(111, 96, 96, 0.163);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur(14px);
@@ -225,7 +241,7 @@ nav a:hover::after, nav a.active::after {
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
 }
 
 .hero-card {
@@ -468,13 +484,13 @@ h1 {
     width: 100%;
     position: relative;
     padding: 20px 0;
-    /* Більше ніяких margin-left: -50vw, секція стоїть чітко у своєму потоці */
 }
 
 .section-title {
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 35px;
+    margin-top: 35px;
     text-align: center;
     background: linear-gradient(45deg, #00d2ff, #b100ff);
     -webkit-background-clip: text;
@@ -517,16 +533,21 @@ h1 {
 /* Обгортка для картинки, щоб тримати пропорції */
 .cert-image-wrapper {
     width: 100%;
-    height: 300px; /* Фіксована висота для акуратності */
+    aspect-ratio: 4 / 3;
+    height: auto;
     border-radius: 12px;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cert-img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Картинка сертифіката не обрізатиметься, а впишеться в рамки */
+    /* object-fit: contain;  */
+object-fit: cover;
     transition: transform 0.3s ease;
 }
 
