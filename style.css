@@ -173,7 +173,7 @@ header {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(11, 12, 16, 0.85); /* Глибокий темний відтінок */
+    background: rgba(11, 10, 10, 0.984); /* Глибокий темний відтінок */
     backdrop-filter: blur(25px); /* Ультра-розмиття фону */
     -webkit-backdrop-filter: blur(25px);
     display: flex;
