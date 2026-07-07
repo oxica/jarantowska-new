@@ -17,16 +17,44 @@
         <div class="bg-glow bg-glow-3"></div>
 
         <div class="container">
-            <header class="glass-panel navbar">
+            <!-- <header class="glass-panel navbar">
                 <a class="logo link" href="#">Oksana<span> Jarantowska</span></a>
-                <!-- <div class="logo">Oksana<span> Jarantowska</span></div> -->
                 <nav>
                     <a href="#o-mnie" class="active">O mnie</a>
                     <a href="#projekty">Projekty</a>
                     <a href="#certyfikaty">Certyfikaty</a>
                     <a href="#kontakt">Kontakt</a>
                 </nav>
+
+                
+            </header> -->
+
+            <header>
+                <a href="#" class="logo">Oksana Jarantowska</a>
+            
+                <nav class="nav-desktop">
+                    <a href="#o-mnie">O mnie</a>
+                    <a href="#certyfikaty">Certyfikaty</a>
+                    <a href="#portfolio">Projekty</a>
+                    <a href="#kontakt">Kontakt</a>
+                </nav>
+            
+                <button class="menu-toggle" aria-label="Otwórz menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            
+                <div class="mobile-overlay">
+                    <nav class="nav-mobile">
+                        <a href="#o-mnie">O mnie</a>
+                        <a href="#certyfikaty">Certyfikaty</a>
+                        <a href="#portfolio">Projekty</a>
+                        <a href="#kontakt">Kontakt</a>
+                    </nav>
+                </div>
             </header>
+
 
             <main>
                 <div class="hero-section">
@@ -62,7 +90,7 @@
                 </section>
                 </div>
 
-                <section id="projekty" class="certificates-section">
+                <section id="portfolio" class="certificates-section">
                     <h2 class="section-title">Moje Projekty</h2>
                 
                     <div class="certificates-grid">
@@ -291,7 +319,17 @@
             </footer>
         </div>
 
-        <script src="script.js"></script>
+        <button class="back-to-top" aria-label="Przewiń do góry">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
+
+        <script src="./script.js"></script>
+        <script src="./menu.js"></script>
+        <script src="./backtotop.js"></script>
+
     </body>
 
 </html>

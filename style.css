@@ -100,17 +100,162 @@ background-image:linear-gradient(rgba(11,12,16,0.4), rgba(11,12,16,0.4)),
 
 }
 
-header{
+/* header{
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 100;
     align-items: flex-start;
-        /* background: rgba(111, 96, 96, 0.163);
-            backdrop-filter: blur(14px); */
+} */
 
-
+/* --- СТИЛІ ХЕДЕРА ТА МЕНЮ --- */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(11, 12, 16, 0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
 }
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #00d2ff, #b100ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-desktop a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-desktop a:hover { color: #00d2ff; }
+
+/* --- КНОПКА ГАМБУРГЕР --- */
+.menu-toggle {
+    display: none; /* За замовчуванням схована на ПК */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 110; /* Вище за саме меню */
+    padding: 0;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- МОБІЛЬНА СКЛЯНА ВУАЛЬ --- */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(11, 12, 16, 0.85); /* Глибокий темний відтінок */
+    backdrop-filter: blur(25px); /* Ультра-розмиття фону */
+    -webkit-backdrop-filter: blur(25px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 105;
+    
+    /* Ховаємо меню за замовчуванням за допомогою прозорості та зсуву */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Коли меню активне */
+.mobile-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Навігаційні посилання всередині мобільного меню */
+.nav-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-mobile a {
+    font-size: 28px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+/* Ефектна поява посилань одне за одним */
+.mobile-overlay.active .nav-mobile a {
+    opacity: 1;
+    transform: scale(1);
+}
+.mobile-overlay.active .nav-mobile a:nth-child(1) { transition: all 0.4s ease 0.1s; }
+.mobile-overlay.active .nav-mobile a:nth-child(2) { transition: all 0.4s ease 0.2s; }
+.mobile-overlay.active .nav-mobile a:nth-child(3) { transition: all 0.4s ease 0.3s; }
+.mobile-overlay.active .nav-mobile a:nth-child(4) { transition: all 0.4s ease 0.4s; }
+
+.nav-mobile a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.8), 0 0 25px rgba(177, 0, 255, 0.8);
+    transform: translateY(-5px);
+}
+
+/* --- МАГІЯ ТРАНСФОРМАЦІЇ ГАМБУРГЕРА В ХРЕСТИК (X) --- */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    background: #00d2ff;
+}
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background: #b100ff;
+}
+
+/* --- АДАПТИВНІСТЬ (МЕДІА-ЗАПИТИ) --- */
+@media (max-width: 850px) {
+    .nav-desktop {
+        display: none; /* Ховаємо звичайне меню */
+    }
+    .menu-toggle {
+        display: flex; /* Показуємо гамбургер на телефонах та планшетах */
+    }
+}
+
+
 
 /* --- ЕФЕКТ СКЛА (Glassmorphism) --- */
 .glass-panel {
@@ -568,5 +713,82 @@ object-fit: cover;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
 }
+
+
+/* --- КНОПКА ВГОРУ (BACK TO TOP) --- */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+    /* Скляний ефект (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 90; /* Вище за картки, але нижче за відкрите мобільне меню */
+    
+    /* Початковий стан: прихована та зміщена вниз */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Іконка стрілочки всередині */
+.back-to-top svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+/* Клас, який додаватиметься через JavaScript при скролі */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Мегасучасний ефект при наведенні (Hover) */
+.back-to-top:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #00d2ff;
+    /* М'яке неонове свічення під колір твоїх куль */
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4), 0 0 30px rgba(177, 0, 255, 0.2);
+}
+
+/* Стрілочка підстрибує вгору при наведенні */
+.back-to-top:hover svg {
+    transform: translateY(-3px);
+}
+
+/* Адаптивність: на мобільних телефонах робимо кнопку трохи меншою, щоб не заважала */
+@media (max-width: 600px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+    .back-to-top svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+
+
+
+
+
 
 
